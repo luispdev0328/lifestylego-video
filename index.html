@@ -4,6 +4,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 	<title>LIFESTYLE - Video</title>
 	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+	<script id="jquery-core-js" type="text/javascript" data-phast-no-defer="" src="https://lifestylegoplus.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.0"></script>
+	<script id="jquery-migrate-js" type="text/javascript" data-phast-no-defer="" src="https://lifestylegoplus.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+	<link rel="preload" as="script" href="https://lifestylegoplus.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.0">
 	<style type="text/css">
 		.elementor-section {
 			position: relative;
@@ -65,5 +68,20 @@
 			</h2>
 		</div>
 	</section>
+	<script>
+		//PLAYS VIDEO IN LOW POWER MODE
+		jQuery(function ($) {
+			$('video').addClass('inlinevideo');
+			$('body').on('click touchstart', function () {
+				var videoElement = document.getElementsByClassName('inlinevideo');
+				if (videoElement.playing) {
+					console.log('playing');
+				} else {
+					console.log('trigger play');
+					$('.inlinevideo').trigger('play');
+				}
+			});
+		});
+	</script>
 </body>
 </html>
